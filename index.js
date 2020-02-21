@@ -32,6 +32,11 @@ Promise.all(promises).then((data) => {
     console.error('Error from calling APIs');
 });
 
+/**
+ * Returns ticker symbols in a single string with separator character as specified.
+ * @param {*} portfolio 
+ * @param {*} char 
+ */
 function getTickers(portfolio, char) {
     var results = [];
     portfolio.forEach(element => {
@@ -39,7 +44,10 @@ function getTickers(portfolio, char) {
     });
     return results.join(char);
 }
-
+/**
+ *  Get file name for results.
+ * @param {*} portfolio 
+ */
 function getFileName(portfolio) {
     return getTickers(portfolio, '-') + '-' + new Date().toISOString() + '.csv'
 }

@@ -1,13 +1,10 @@
 const util = require('util');
-/*
-portfolio should be sent in the following manner
-const portfolio = [
-    { 'Ticker': 'MSFT', 'Quantity': 171 },
-    { 'Ticker': 'VOO', 'Quantity': 218 },
-    { 'Ticker': 'SPCE', 'Quantity': 38 }
-];
-*/
-
+/**
+ * Get URLs for a series of API requests.
+ * @param {*} tickers 
+ * @param {*} baseUrl 
+ * @param {*} apis 
+ */
 function getUrls(tickers, baseUrl, apis) {
     var results = [];
     apis.forEach(element => {
