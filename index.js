@@ -10,7 +10,7 @@ const fields = ['Ticker', 'Quantity', 'Current Price', 'High', 'Low', 'Current V
 var urls = getUrls(getTickers(portfolio, ','),
     'https://financialmodelingprep.com',
     [
-        '/api/v3/historical-price-full/%s?from=2020-02-18',
+        '/api/v3/historical-price-full/%s?from=2019-01-01',
         '/api/v3/stock/real-time-price/%s'
     ]);
 
