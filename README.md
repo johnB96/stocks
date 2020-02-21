@@ -1,6 +1,6 @@
 # Stocks
 
-Sample nodejs script that looksup the value of a portfolio and save the current value to csv file.
+Sample nodejs script that looksup the value of a portfolio and save portfolio value to csv file.
 
 ## Getting Started
 
