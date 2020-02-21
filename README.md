@@ -45,11 +45,13 @@ The results will be saved to the stocks directory.
 
 The contents should look similar to this depending on the portfolio
 
+```
 Ticker,Quantity,Current Price,High,Low,Current Value
 MSFT,171,$180.37,$188.18,$181.10,"$30,843.27"
 VOO,218,$307.20,$311.59,$306.67,"$66,969.60"
 SPCE,38,$34.97,$42.49,$28.71,"$1,328.86"
 Total,,,,,"$99,141.73"
+```
 
 ### Updating Portfolio
 
@@ -78,4 +80,8 @@ Here is an example portfolio.json
 To run tests with coverage, run the following
 ```
 npm test
+```
+or
+```
+npm run test
 ```
