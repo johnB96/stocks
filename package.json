@@ -1,0 +1,29 @@
+{
+  "name": "stocks",
+  "version": "1.0.0",
+  "description": "stocks sample",
+  "main": "index.js",
+  "devDependencies": {
+    "jest": "^25.1.0"
+  },
+  "scripts": {
+    "api": "node index",
+    "test": "jest --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/johnB96/stocks.git"
+  },
+  "author": "John Bedalov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/johnB96/stocks/issues"
+  },
+  "homepage": "https://github.com/johnB96/stocks#readme",
+  "dependencies": {
+    "json2csv": "^4.5.4",
+    "promise": "^8.0.3",
+    "request": "^2.88.2",
+    "request-promise": "^4.2.5"
+  }
+}
