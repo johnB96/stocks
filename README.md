@@ -7,10 +7,10 @@ Sample nodejs script that looksup the value of a portfolio and save portfolio va
 ### Prerequisites
 
 The following are required to run the sample
-```
-git to clone the repository
-npm + node to build, run, and test
-```
+
+- git to clone the repository
+- npm + node to build, run, and test
+
 ### Installing
 
 Clone the repository
