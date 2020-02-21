@@ -21,7 +21,6 @@ const promises = urls.map(url => request(url));
 Promise.all(promises).then((data) => {
     // note that order returned is deterministic https://stackoverflow.com/a/28066851/4513382
     var rows = rowData(portfolio, JSON.parse(data[0]), JSON.parse(data[1]));
-    console.log(rows);
     parseAsync(rows, { fields, quote: '' })
         .then(csv => {
             fs.writeFile(fileName, csv, function (err) {
@@ -44,5 +43,3 @@ function getTickers(portfolio, char) {
 function getFileName(portfolio) {
     return getTickers(portfolio, '-') + '-' + new Date().toISOString() + '.csv'
 }
-
-
