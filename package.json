@@ -22,6 +22,7 @@
   "homepage": "https://github.com/johnB96/stocks#readme",
   "dependencies": {
     "json2csv": "^4.5.4",
+    "lodash": "^4.17.15",
     "promise": "^8.0.3",
     "request": "^2.88.2",
     "request-promise": "^4.2.5"

@@ -1,6 +1,6 @@
 const rowData = require('./row-data');
 
-const portfolio = [
+const multiPortfolio = [
     {
         "Ticker": "MSFT",
         "Quantity": 171
@@ -15,7 +15,14 @@ const portfolio = [
     }
 ];
 
-const historicalStockList = {
+const singlePortfolio = [
+    {
+        "Ticker": "MSFT",
+        "Quantity": 171
+    }
+];
+
+const multiHistory = {
     "historicalStockList": [{
         "symbol": "MSFT",
         "historical": [{
@@ -112,7 +119,54 @@ const historicalStockList = {
     }]
 };
 
-const companiesPriceList = {
+const singleHistory = {
+    "symbol": "MSFT",
+    "historical": [{
+        "date": "2020-02-18",
+        "open": 185.61,
+        "high": 187.7,
+        "low": 185.5,
+        "close": 187.23,
+        "adjClose": 186.72,
+        "volume": 2.77922E7,
+        "unadjustedVolume": 2.77922E7,
+        "change": -1.62,
+        "changePercent": -0.873,
+        "vwap": 186.81,
+        "label": "February 18, 20",
+        "changeOverTime": -0.00873
+    }, {
+        "date": "2020-02-19",
+        "open": 188.06,
+        "high": 188.18,
+        "low": 186.47,
+        "close": 187.28,
+        "adjClose": 187.28,
+        "volume": 2.99975E7,
+        "unadjustedVolume": 2.99975E7,
+        "change": 0.78,
+        "changePercent": 0.415,
+        "vwap": 187.31,
+        "label": "February 19, 20",
+        "changeOverTime": 0.00415
+    }, {
+        "date": "2020-02-20",
+        "open": 186.95,
+        "high": 187.25,
+        "low": 181.1,
+        "close": 184.42,
+        "adjClose": 184.42,
+        "volume": 3.6745E7,
+        "unadjustedVolume": 3.6745E7,
+        "change": 2.53,
+        "changePercent": 1.353,
+        "vwap": 184.25667,
+        "label": "February 20, 20",
+        "changeOverTime": 0.01353
+    }]
+};
+
+const multiCurrentPrice = {
     "companiesPriceList": [{
         "symbol": "MSFT",
         "price": 184.39
@@ -124,8 +178,12 @@ const companiesPriceList = {
         "price": 309.7
     }]
 };
+const singleCurrentPrice = {
+    "symbol": "MSFT",
+    "price": 178.145
+}
 
-const expected = [
+const multiExpected = [
     {
         Ticker: 'MSFT',
         Quantity: 171,
@@ -160,6 +218,42 @@ const expected = [
     }
 ]
 
-test('get row data', () => {
-    expect(rowData(portfolio, historicalStockList, companiesPriceList)).toMatchObject(expected);
+const singleExpected = [
+    {
+        Ticker: 'MSFT',
+        Quantity: 171,
+        'Current Price': '$178.15',
+        High: '$188.18',
+        Low: '$181.10',
+        'Current Value': '"$30,462.80"'
+    },
+    {
+        Ticker: 'Total',
+        Quantity: null,
+        'Current Price': null,
+        High: null,
+        Low: null,
+        'Current Value': '"$30,462.80"'
+    }
+]
+
+const emtpyExpected = [{
+    Ticker: 'Total',
+    Quantity: null,
+    'Current Price': null,
+    High: null,
+    Low: null,
+    'Current Value': '$0.00'
+}];
+
+test('get row data given multi symbols in api calls', () => {
+    expect(rowData(multiPortfolio, multiHistory, multiCurrentPrice)).toMatchObject(multiExpected);
+});
+
+test('get row data given single symbol api calls', () => {
+    expect(rowData(singlePortfolio, singleHistory, singleCurrentPrice)).toMatchObject(singleExpected);
+});
+
+test('get row data given empty results from apis', () => {
+    expect(rowData([], {}, {})).toMatchObject(emtpyExpected);
 });
